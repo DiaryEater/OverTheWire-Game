@@ -7,10 +7,10 @@ votre_nom_d'utilisateur> ssh bandit0@labs.overthewire.org -p 2220
 ```
 ```sh
 `ssh`: pour se connecter à un serveur distant de manière sécurisée à travers un réseau;
-`bandit[0 → 34]`: nom d'utilisateur que vous souhaitez utiliser pour vous connecter au serveur; <br>
-`bandit.labs.overthewire.org`: nom de l'hôte que vous souhaitez vous connecter;<br>
-`p 2220`: spécifie le port SSH que vous souhaitez utiliser pour vous connecter au serveur; <br>
-`l`: pour préciser le nom de l'utilisateur (en Englais c'est `localhost`) <br>
+`bandit[0 → 34]`: nom d'utilisateur que vous souhaitez utiliser pour vous connecter au serveur;
+`bandit.labs.overthewire.org`: nom de l'hôte que vous souhaitez vous connecter;
+`p 2220`: spécifie le port SSH que vous souhaitez utiliser pour vous connecter au serveur;
+`l`: pour préciser le nom de l'utilisateur (en Englais c'est `localhost`)
 =>  le nom d'utilisateur peut être spécifié directement après le nom d'hôte avec un `@`.
 ```
 
