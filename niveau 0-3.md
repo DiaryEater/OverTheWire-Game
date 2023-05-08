@@ -38,7 +38,7 @@ bandit1@bandit:~$ exit
 bandit1@bandit:~$ ls
 -
 bandit1@bandit:~$ cat ./-
-rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi [le MDP]
 bandit1@bandit:~$ exit
 ```
 Pour comprendre le `cat ./-`, veuillez vous diriger ici : https://tldp.org/LDP/abs/html/special-chars.html ou là : https://www.google.com/search?q=dashed+filename
