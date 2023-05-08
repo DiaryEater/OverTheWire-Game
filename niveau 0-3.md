@@ -1,35 +1,54 @@
-## N.B :  Je ne pourrais pas vous expliquer toutes les commandes mais au fûr et à mesure que vous les employz, vous comprendriez petit à petit.
-
-Le but est de trouver un mot de passe (à l'aide des commandes) dans le niveau actuel pour enchaîner le niveau suivant.
-Quand vous auriez le mot de passe, copiez le (`Ctrl + C`) et mettez le quelques part (comme un bloc notes). Pour le coller dans l'invite de commandes, `click droite`, et `Enter` (P.S : je suis sur Windows). (Si vous préférez) Utilisez "VMWare Workstation Pro" pour simuler un `linux`.
-* Bref, commençons ...
-
-
 # Bandit Niveau 0
 Pour Commencer un jeu, bien sûr qu'il y a y toujours un commencement. A ce niveau, il est encore très facile même pour un débutant car tout ce qu'il faut est déjà dans le sujet.
 
-Bien, pour commencer il ne vous faudra juste qu'exécuter cette `commande` :
+Bien, pour commencer il ne vous faudra ouvrir votre invite de commandes, et de juste exécuter cette `commande` :
 ```sh
-ssh -u bandit.labs.overthewire.org -p 2220 -l bandit0
+votre_nom_d'utilisateur> ssh bandit0@labs.overthewire.org -p 2220
 ```
-`-u`: pour indiquer l'hôte oû vous voulez vous connecter;
-`p`: pour le port du réseau;
-`l`: pour préciser le nom de l'utilisateur (en Englais c'est `localhost`)
-
-
-`N.B :`Vous devriez utiliser cette commande à chaque `exit` pour changer d'utilisateur (autrement dit, changer de niveau), et sera :
 ```sh
-ssh -u bandit.labs.overthewire.org -p 2220 -l bandit0
-ssh -u bandit.labs.overthewire.org -p 2220 -l bandit1
-ssh -u bandit.labs.overthewire.org -p 2220 -l bandit2
-...
-ssh -u bandit.labs.overthewire.org -p 2220 -l bandit34;
+`ssh`: pour se connecter à un serveur distant de manière sécurisée à travers un réseau;
+`bandit[0 → 34]`: nom d'utilisateur que vous souhaitez utiliser pour vous connecter au serveur; <br>
+`bandit.labs.overthewire.org`: nom de l'hôte que vous souhaitez vous connecter;<br>
+`p 2220`: spécifie le port SSH que vous souhaitez utiliser pour vous connecter au serveur; <br>
+`l`: pour préciser le nom de l'utilisateur (en Englais c'est `localhost`) <br>
+=>  le nom d'utilisateur peut être spécifié directement après le nom d'hôte avec un `@`.
 ```
-et n'oubliez de faire appel à la `commande exit` d'abord à la fin de chaque niveau pour en enchaîner un autre.
 
+`Rappel :` à chaque MDP trouvé, vous faites appel à `exit`, et refait appel, d'ordre croissant, à : 
+```sh
+ssh bandit[1 → 34]@labs.overthewire.org -p 2220
+```
 
 # Bandit Niveau 0 → Niveau 1
+à partir d'ici je vais juste mettre les commandes utilisés, conséquence de chaque commande, et les expliquer ensuite. <br>
+Les lignes où il y a `bandit[0 → 34]@bandit:~$` sont les lignes où on invite les commandes, en bas, les conséquences. Attention, parfois ça n'affiche rien, non pas parce que la commande est fausse mais on ne voit juste pas des yeux ce qui ce passe derrière. Si la commande est fausse, on sera toujours prevenu par l'invite de commande.  
+```sh
+bandit0@bandit:~$ ls
+readme
+bandit0@bandit:~$
+bandit0@bandit:~$ cat readme
+NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL  [le MDP]
+bandit1@bandit:~$ exit
+```
+`ls:` permet d'afficher une liste des fichiers et des répertoires dans le répertoire courant;<br>
+`cat:` permet d'afficher le contenu d'un ou plusieurs fichiers sur la sortie standard
 
 # Bandit Niveau 1 → Niveau 2
+```sh
+bandit1@bandit:~$ ls
+-
+bandit1@bandit:~$ cat ./-
+rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+bandit1@bandit:~$ exit
+```
+Pour comprendre le `cat ./-`, veuillez vous diriger ici : https://tldp.org/LDP/abs/html/special-chars.html ou là : https://www.google.com/search?q=dashed+filename
+
 # Bandit Niveau 2 → Niveau 3
- 
+```sh
+bandit2@bandit:~$ ls
+spaces in this filename
+bandit2@bandit:~$ cat spaces\ in\ this\ filename
+aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG [le MDP]
+bandit2@bandit:~$ exit
+```
+ Pour comprendre le `cat spaces\ in\ this\ filename`, veuillez vous diriger ici : https://www.google.com/search?q=spaces+in+filename
